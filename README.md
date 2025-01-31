@@ -1,1 +1,1 @@
-# Ip-scan-tool-in-Bash
+This tool is normal and basic ip scan. And found vulnerability in this Ip address. At first you please install nmap or nikto. Becacuse this tool base on this. Use this comand to download (apt-get install nmap) (apt-get install nikto). This tool also required python3. Use this command (pkg install python3). Then use this command (apt update). Make sure you have executable permission. If you not then please use this command (./ip_scan.sh). Then put ip which you scan. At last please remove all parentheses before use all command
