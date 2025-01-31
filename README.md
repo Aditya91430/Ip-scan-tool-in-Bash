@@ -1,1 +1,30 @@
-This tool is normal and basic ip scan. And found vulnerability in this Ip address. At first you please install nmap or nikto. Becacuse this tool base on this. Use this comand to download (apt-get install nmap) (apt-get install nikto). This tool also required python3. Use this command (pkg install python3). Then use this command (apt update). Make sure you have executable permission. If you not then please use this command (./ip_scan.sh). Then put ip which you scan. At last please remove all parentheses before use all command
+!/bin/bash
+
+# Check Nmap is installed or not
+if ! command -v nmap &> /dev/null
+then
+    echo "Nmap is not installed. Please install it and run the script again."
+    exit 1
+fi
+
+# Check Nikto is installed or not
+if ! command -v nikto &> /dev/null
+then
+    echo "Nikto is not installed. Please install it and run the script again."
+    exit 1
+fi
+
+# Prompt for IP address
+read -p "Enter the IP address to scan: " ip_address
+
+# Perform Nmap scan
+echo "Performing Nmap scan on $ip_address..."
+nmap_scan_output=$(nmap -sV $ip_address)
+echo "$nmap_scan_output"
+
+# Perform Nikto scan
+echo "Performing Nikto scan on $ip_address..."
+nikto_scan_output=$(nikto -h $ip_address)
+echo "$nikto_scan_output"
+
+echo "All scans completed successfully."
